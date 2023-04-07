@@ -1,0 +1,54 @@
+
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html>
+<link rel="stylesheet" type="text/css"
+href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
+
+<script type="text/javascript"
+src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+<title>Modifier un Produit</title>
+</head>
+<body>
+<!-- -->
+<div
+th:replace="template"></div>
+<div class="container mt-5">
+<div class="card-body">
+<form action="updateProduit" method="post">
+ <div class="form-group">
+ <label class="control-label">ID Produit :</label>
+ <input type="text" name="idProduit" th:value="${produit.idProduit}"
+readonly class="form-control"/>
+ </div>
+ <div class="form-group">
+ <label class="control-label">Nom Produit :</label>
+ <input type="text" name="nomProduit" th:value="${produit.nomProduit}"
+class="form-control"/>
+ </div>
+ <div class="form-group">
+ <label class="control-label">Prix Produit :</label>
+ <input type="text" name="prixProduit" th:value="${produit.prixProduit}"
+class="form-control"/>
+ </div>
+ <div class="form-group">
+ <label class="control-label"> Date création :</label>
+ 
+ <input class="form-control" type="date" name="date" th:value="${#dates.format(produit.dateCreation, 'yyyy-MM-dd')}"/>
+ </div>
+ 
+ 
+  
+ <div>
+ <button type="submit" class="btn btn-primary">Modifier</button>
+</div>
+</form>
+</div>
+<br/>
+<br/>
+<a href="ListeProduits">Liste Produits</a>
+</div>
+</body>
+</html>
